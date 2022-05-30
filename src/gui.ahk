@@ -10,9 +10,3 @@ if (ThaiLayout)
 if (EngLayout)
 	enLayoutPref := EngLayout
 return
-
-OnMessage(0x53, "WM_HELP")
-MsgBox, 0x4040, WrongLang Spark (Demo), The application is working in the background.
-
-GuiClose:
-ExitApp
