@@ -6,12 +6,9 @@
 ; WrongLang Script
 ^+F5::
 clipboard := ""
-
 Send, ^c
 ClipWait
-
 words = %clipboard%
-
 Send, {BACKSPACE}
 
 Try 
@@ -36,12 +33,13 @@ Catch e
 {
     MsgBox % "Error: " + e.Message
 }
-
 return
 
 ; Check if program is working
 ^+BACKSPACE::
 SoundBeep, 2000
+
 MsgBox, Program is working fine.
 MsgBox % "Current Thai Layout: " thLayoutPref
 MsgBox % "Current English Layout: " enLayoutPref
+return
