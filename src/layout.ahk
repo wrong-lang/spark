@@ -3,5 +3,5 @@ ThaiKeyLayout := { "Kedmanee": StrSplit("ๅ/-ภถุึคตจขชๆไ�
 EnglishKeyLayout := { "Qwerty": StrSplit("1234567890-=qwertyuiop[]\asdfghjkl;'zxcvbnm,./!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:""ZXCVBNM<>"), "Dvorak": StrSplit("1234567890[]',.pyfgcrl/=\\aoeuidhtns-;qjkxbmwvz!@#$%^&*(){}""<>PYFGCRL?+|AOEUIDHTNS_:QJKXBMWVZ"), "Colemak": StrSplit("1234567890-=qwfpgjluy;[]\\arstdhneio'zxcvbkm,./!@#$%^&*()_+QWFGPJLUY:{}|ARSTDHNEIO""ZXCVBKM<>?") }
 
 ; User preferences for the keyboard layout
-thLayoutPref = Kedmanee
-enLayoutPref = Qwerty
+thLayoutPref := ""
+enLayoutPref := ""
