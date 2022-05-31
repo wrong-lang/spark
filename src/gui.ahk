@@ -4,9 +4,13 @@ Gui, Add, DDL, gSelected vEngLayout  Choose1 w300, Qwerty|Dvorak|Colemak
 Gui, Show,, WrongLang Spark (Demo)
 
 Selected:
-Gui, Submit, nohide
-if (ThaiLayout)
-	thLayoutPref := ThaiLayout
-if (EngLayout)
-	enLayoutPref := EngLayout
-return
+	Gui, Submit, nohide
+	If (ThaiLayout) 
+	{
+		thLayoutPref := ThaiLayout
+	}
+	If (EngLayout)
+	{
+		enLayoutPref := EngLayout
+	}
+Return

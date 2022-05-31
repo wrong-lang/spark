@@ -33,7 +33,7 @@
     {
         MsgBox % "Error: " + e.Message
     }
-return
+Return
 
 ; WrongLang Script (Thai -> Eng)
 ^+Right::
@@ -62,7 +62,7 @@ return
     {
         MsgBox % "Error: " + e.Message
     }
-return
+Return
 
 ; WrongLang Script (Eng -> Thai)
 ^+Left::
@@ -91,7 +91,7 @@ return
     {
         MsgBox % "Error: " + e.Message
     }
-return
+Return
 
 ; Check if program is working
 ^+BACKSPACE::
