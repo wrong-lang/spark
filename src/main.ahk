@@ -4,7 +4,7 @@
 #Include, gui.ahk
 
 ; WrongLang Script (Thai <-> Eng)
-^+Down::
+^+Up::
 clipboard := ""
 Send, ^c
 ClipWait
@@ -66,6 +66,35 @@ return
 
 ; WrongLang Script (Eng -> Thai)
 ^+Left::
+clipboard := ""
+Send, ^c
+ClipWait
+words = %clipboard%
+Send, {BACKSPACE}
+
+Try 
+{
+    For i, char in StrSplit(words)
+    {
+        thChar := ThaiKeyLayout[thLayoutPref][GetIndexOf(EnglishKeyLayout[enLayoutPref], char)]
+        If (thChar)
+        {
+            Send % thChar
+        }
+        Else 
+        {
+            Send % char
+        }
+    }
+} 
+Catch e 
+{
+    MsgBox % "Error: " + e.Message
+}
+return
+
+; WrongLang Script (๊Unshift mode)
+^+Down::
 clipboard := ""
 Send, ^c
 ClipWait

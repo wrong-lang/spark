@@ -17,9 +17,10 @@ Download the latest build at [RELEASE](/RELEASE)
 # Usage
 You must hovering the text you want to convert before executing any functions
 
-- `CTRL+SHIFT+DOWN` - Convert Thai <-> Eng
+- `CTRL+SHIFT+UP` - Convert Thai <-> Eng
 - `CTRL+SHIFT+LEFT` - Convert Eng -> Thai
 - `CTRL+SHIFT+RIGHT` - Convert Thai -> Eng
+- `CTRL+SHIFT+DOWN` - Unshift Mode
 
 # Supported Layout
 
@@ -27,7 +28,6 @@ You must hovering the text you want to convert before executing any functions
 - Kedmanee
 - Pattachote
 - Manoonchai
-
 
 ### English Layout
 - Qwerty
