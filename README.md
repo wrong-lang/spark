@@ -17,7 +17,9 @@ Download the latest build at [RELEASE](/RELEASE)
 # Usage
 You must hovering the text you want to convert before executing any functions
 
-- `CTRL+SHIFT+F5` - Convert Thai <-> Eng
+- `CTRL+SHIFT+DOWN` - Convert Thai <-> Eng
+- `CTRL+SHIFT+LEFT` - Convert Eng -> Thai
+- `CTRL+SHIFT+RIGHT` - Convert Thai -> Eng
 
 # Supported Layout
 
