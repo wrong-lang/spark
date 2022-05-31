@@ -1,6 +1,6 @@
 GetIndexOf(arr, elem)
 {
-    For i, v in arr
+    For i, v In arr
     {
         If (v == elem)
         {

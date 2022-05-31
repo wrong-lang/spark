@@ -20,7 +20,6 @@ You must hovering the text you want to convert before executing any functions
 - `CTRL+SHIFT+UP` - Convert Thai <-> Eng
 - `CTRL+SHIFT+LEFT` - Convert Eng -> Thai
 - `CTRL+SHIFT+RIGHT` - Convert Thai -> Eng
-- `CTRL+SHIFT+DOWN` - Unshift Mode
 
 # Supported Layout
 

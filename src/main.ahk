@@ -5,128 +5,99 @@
 
 ; WrongLang Script (Thai <-> Eng)
 ^+Up::
-clipboard := ""
-Send, ^c
-ClipWait
-words = %clipboard%
-Send, {BACKSPACE}
+    clipboard := ""
+    Send, ^c
+    ClipWait
+    words = %clipboard%
+    Send, {BACKSPACE}
 
-Try 
-{
-    For i, char in StrSplit(words)
+    Try 
     {
-        If (RegExMatch(char, "[a-zA-Z0-9\-=\[\]\\;',./!@#$%^&*()_+{}|:""<>]"))
+        For i, char in StrSplit(words)
         {
-            Send % ThaiKeyLayout[thLayoutPref][GetIndexOf(EnglishKeyLayout[enLayoutPref], char)]
+            If (RegExMatch(char, "[a-zA-Z0-9\-=\[\]\\;',./!@#$%^&*()_+{}|:""<>]"))
+            {
+                Send % ThaiKeyLayout[thLayoutPref][GetIndexOf(EnglishKeyLayout[enLayoutPref], char)]
+            }
+            Else If (RegExMatch(char, "[ก-๛!@#$%^&*()_+\-=|/\-]"))
+            {
+                Send % EnglishKeyLayout[enLayoutPref][GetIndexOf(ThaiKeyLayout[thLayoutPref], char)]
+            }
+            Else
+            {
+                Send % char
+            }
         }
-        Else If (RegExMatch(char, "[ก-๛!@#$%^&*()_+\-=|/\-]"))
-        {
-            Send % EnglishKeyLayout[enLayoutPref][GetIndexOf(ThaiKeyLayout[thLayoutPref], char)]
-        }
-        Else
-        {
-            Send % char
-        }
+    } 
+    Catch e 
+    {
+        MsgBox % "Error: " + e.Message
     }
-} 
-Catch e 
-{
-    MsgBox % "Error: " + e.Message
-}
 return
 
 ; WrongLang Script (Thai -> Eng)
 ^+Right::
-clipboard := ""
-Send, ^c
-ClipWait
-words = %clipboard%
-Send, {BACKSPACE}
+    clipboard := ""
+    Send, ^c
+    ClipWait
+    words = %clipboard%
+    Send, {BACKSPACE}
 
-Try 
-{
-    For i, char in StrSplit(words)
+    Try 
     {
-        enChar := EnglishKeyLayout[enLayoutPref][GetIndexOf(ThaiKeyLayout[thLayoutPref], char)]
-        If (enChar)
+        For i, char in StrSplit(words)
         {
-            Send % enChar
-        } 
-        Else
-        {
-            Send % char
+            enChar := EnglishKeyLayout[enLayoutPref][GetIndexOf(ThaiKeyLayout[thLayoutPref], char)]
+            If (enChar)
+            {
+                Send % enChar
+            } 
+            Else
+            {
+                Send % char
+            }
         }
+    } 
+    Catch e 
+    {
+        MsgBox % "Error: " + e.Message
     }
-} 
-Catch e 
-{
-    MsgBox % "Error: " + e.Message
-}
 return
 
 ; WrongLang Script (Eng -> Thai)
 ^+Left::
-clipboard := ""
-Send, ^c
-ClipWait
-words = %clipboard%
-Send, {BACKSPACE}
+    clipboard := ""
+    Send, ^c
+    ClipWait
+    words = %clipboard%
+    Send, {BACKSPACE}
 
-Try 
-{
-    For i, char in StrSplit(words)
+    Try 
     {
-        thChar := ThaiKeyLayout[thLayoutPref][GetIndexOf(EnglishKeyLayout[enLayoutPref], char)]
-        If (thChar)
+        For i, char in StrSplit(words)
         {
-            Send % thChar
+            thChar := ThaiKeyLayout[thLayoutPref][GetIndexOf(EnglishKeyLayout[enLayoutPref], char)]
+            If (thChar)
+            {
+                Send % thChar
+            }
+            Else 
+            {
+                Send % char
+            }
         }
-        Else 
-        {
-            Send % char
-        }
-    }
-} 
-Catch e 
-{
-    MsgBox % "Error: " + e.Message
-}
-return
-
-; WrongLang Script (๊Unshift mode)
-^+Down::
-clipboard := ""
-Send, ^c
-ClipWait
-words = %clipboard%
-Send, {BACKSPACE}
-
-Try 
-{
-    For i, char in StrSplit(words)
+    } 
+    Catch e 
     {
-        thChar := ThaiKeyLayout[thLayoutPref][GetIndexOf(EnglishKeyLayout[enLayoutPref], char)]
-        If (thChar)
-        {
-            Send % thChar
-        }
-        Else 
-        {
-            Send % char
-        }
+        MsgBox % "Error: " + e.Message
     }
-} 
-Catch e 
-{
-    MsgBox % "Error: " + e.Message
-}
 return
 
 ; Check if program is working
 ^+BACKSPACE::
-SoundBeep, 2000
+    SoundBeep, 2000
 
-MsgBox, Program is working fine.
-MsgBox % "Current Thai Layout: " thLayoutPref
-MsgBox % "Current English Layout: " enLayoutPref
-return
+    MsgBox, Program is working fine.
+    MsgBox % "Current Thai Layout: " thLayoutPref
+    MsgBox % "Current English Layout: " enLayoutPref
+Return
