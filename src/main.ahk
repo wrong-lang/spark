@@ -92,12 +92,3 @@ Return
         MsgBox % "Error: " + e.Message
     }
 Return
-
-; Check if program is working
-^+BACKSPACE::
-    SoundBeep, 2000
-
-    MsgBox, Program is working fine.
-    MsgBox % "Current Thai Layout: " thLayoutPref
-    MsgBox % "Current English Layout: " enLayoutPref
-Return
